@@ -5,7 +5,7 @@
 
 #define M_PI acos(-1.0)
 
-class Circle : protected Figure
+class Circle : public Figure
 {
 public:
 	Circle(double _radius, double _x, double _y, double _r, double _g, double _b)
@@ -32,12 +32,7 @@ public:
 			);
 		}
 		glEnd();
-	}
-	void move(double dx, double dy) 
-	{
-		x = x + dx;
-		y = y + dy;
-	}
+	}  
 private:
 	double radius;
 };

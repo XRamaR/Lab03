@@ -3,7 +3,7 @@
 #include <GL/freeglut.h>
 #include "Figure.h"
 
-class Rectangl : protected Figure
+class Rectangl : public Figure
 {
 public:
 	Rectangl(double _w, double _h, double _x, double _y, double _k, double _r, double _g, double _b) {
@@ -37,14 +37,6 @@ public:
 		glEnd();
 		glPopMatrix();
 	}
-
-	void move(double dx, double dy)
-	{
-		x = x + dx;
-		y = y + dy;
-	}
-
-
 private:
 	double w, h;
 };
