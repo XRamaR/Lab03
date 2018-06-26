@@ -11,25 +11,24 @@
 class Circle : public Figure
 {
 public:
-	Circle(double _radius, double _x, double _y, double _r, double _g, double _b)
+	Circle(double _radius)
 	{
 		radius = _radius;
-		x = _x;
-		y = _y;
-		r = _r;
-		g = _g;
-		b = _b;
+		x = 0.1*((rand() % 20) - 20);
+		y = 0.1*((rand() % 20) - 20);
+		r = 0.1 + 0.1*(rand() % 10);
+		g = 0.1 + 0.1*(rand() % 10);
+		b = 0.1 + 0.1*(rand() % 10);
 	}
-	void draw() 
+	void draw()
 	{
-		srand(time(NULL));
 		int i;
 		int triangleAmount = 30; //# of triangles used to draw circle
 								 //GLfloat radius = 0.8f; //radius
 		GLfloat twicePi = 2.0f * M_PI;
 
 		glBegin(GL_TRIANGLE_FAN);
-		glColor3d(0.1*(rand() % 10), 0.1*(rand() % 10), 0.1*(rand() % 10));
+		glColor3d(r, g, b);
 		glVertex2f(x, y); // center of circle
 		for (i = 0; i <= triangleAmount; i++) {
 			glVertex2f(
@@ -38,7 +37,7 @@ public:
 			);
 		}
 		glEnd();
-	}  
+	}
 private:
 	double radius;
 };
