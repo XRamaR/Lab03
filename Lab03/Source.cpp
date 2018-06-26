@@ -71,7 +71,6 @@ void InitGLUTScene(const char* window_name)
 void FunkcjaDoObslugiKlawiatury(unsigned char key, int mouse_x, int mouse_y)
 {
 	//std::cout << "Nacisnieto klawisz: " << key << ", a myszka znajduje sie w pozycji: " << mouse_x << ", " << mouse_y << "(w pikselach)" << std::endl;
-	
 	if (key == 'w')
 	{
 		rectangles[0].move(0, 0.1);
@@ -105,15 +104,18 @@ void SetCallbackFunctions()
 
 int main(int argc, char *argv[])
 {
-	srand(time(NULL));
-	Rectangl p(4, 0.5, 0, -1, 0, 1, 0, 0);
+
+	Rectangl p(0, 0, 0, 0, 0, 0, 0.5, 0);
 	rectangles.push_back(p);
-	Rectangl p2(1.0, 1.0, 1.5, 1, 45, 0, 1, 0);
+	/*Rectangl p(4, 0.5, 0, -1, 0, 1, 0.4, 0);
+	rectangles.push_back(p);*/
+	/*Rectangl p2(1.0, 1.0, 1.5, 1, 45, 0, 1, 0);
 	rectangles.push_back(p2);
 	Rectangl p3(1.0, 1.0, -1.5, 1, 45, 0, 1, 0);
-	rectangles.push_back(p3);
-	Circle c(1.0, 0.0, 1.0, 0.0, 1.0, 0.0);
+	rectangles.push_back(p3);*/
+	Circle c(1.0, 0.0, 1.0, 1, 0.6, 0.0);
 	circles.push_back(c);
+	
 	// it's still possible to use console to print messages
 	std::cout << "Hello openGL world!" << std::endl;
 

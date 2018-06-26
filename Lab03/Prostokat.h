@@ -47,4 +47,5 @@ public:
 
 private:
 	double w, h;
+	double r, g, b;
 };
