@@ -14,11 +14,11 @@ public:
 	Circle(double _radius)
 	{
 		radius = _radius;
-		x = 0.1*((rand() % 20) - 20);
-		y = 0.1*((rand() % 20) - 20);
-		r = 0.1 + 0.1*(rand() % 10);
-		g = 0.1 + 0.1*(rand() % 10);
-		b = 0.1 + 0.1*(rand() % 10);
+		x = 0.1*((rand() % 40) - 17);
+		y = 0.1*((rand() % 40) - 17);
+		r = 0.1*(rand() % 10);
+		g = 0.1*(rand() % 10);
+		b = 0.1*(rand() % 10);
 	}
 	void draw()
 	{
@@ -37,6 +37,19 @@ public:
 			);
 		}
 		glEnd();
+	}
+	bool Mouse_inside(int mouse_x, int mouse_y)
+	{
+		if (abs(x-mouse_x) < 0.5 && abs(y-mouse_y) < 0.5)
+			return true;
+		else
+			return false;
+	}
+	void Drag(int dx, int dy)
+	{
+		this->picked = true;
+		this->x = dx;
+		this->y = dy;
 	}
 private:
 	double radius;

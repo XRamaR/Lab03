@@ -68,29 +68,42 @@ void InitGLUTScene(const char* window_name)
 
 void FunkcjaDoObslugiKlawiatury(unsigned char key, int mouse_x, int mouse_y)
 {
-	//std::cout << "Nacisnieto klawisz: " << key << ", a myszka znajduje sie w pozycji: " << mouse_x << ", " << mouse_y << "(w pikselach)" << std::endl;
-	if (key == 'w')
+	std::cout << "Nacisnieto klawisz: " << key << ", a myszka znajduje sie w pozycji: " << mouse_x << ", " << mouse_y << "(w pikselach)" << std::endl;
+	//if (key == 'w')
+	//{
+	//	//rectangles[0].move(0, 0.1);
+	//	circles[0].move(0, 0.1);
+	//}
+	//if (key == 's')
+	//{
+	//	//rectangles[0].move(0, -0.1);
+	//	circles[0].move(0, -0.1);
+	//}
+	//if (key == 'a')
+	//{
+	//	//rectangles[0].move(-0.1, 0);
+	//	circles[0].move(-0.1, 0);
+	//}
+	//if (key == 'd')
+	//{
+	//	//rectangles[0].move(0.1, 0);
+	//	circles[0].move(0.1, 0);
+	//}
+	//circles[0].move(mouse_x,mouse_y);
+}
+void OnMouseClick(int button, int state, int x, int y)
+{
+	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
 	{
-		//rectangles[0].move(0, 0.1);
-		circles[0].move(0, 0.1);
-	}
-	if (key == 's')
-	{
-		//rectangles[0].move(0, -0.1);
-		circles[0].move(0, -0.1);
-	}
-	if (key == 'a')
-	{
-		//rectangles[0].move(-0.1, 0);
-		circles[0].move(-0.1, 0);
-	}
-	if (key == 'd')
-	{
-		//rectangles[0].move(0.1, 0);
-		circles[0].move(0.1, 0);
+		puts("Middle button clicked");
+		std::cout << x << "  " << y << std::endl;
+		
+		{
+			if (circles[0].Mouse_inside(x, y))
+				std::cout << "inside " << it << "circle" << std::end;
+		}
 	}
 }
-
 
 void SetCallbackFunctions()
 {
@@ -98,6 +111,7 @@ void SetCallbackFunctions()
 	glutDisplayFunc(display);
 	glutIdleFunc(idle);
 	glutKeyboardFunc(FunkcjaDoObslugiKlawiatury);
+	glutMouseFunc(OnMouseClick);
 }
 
 int main(int argc, char *argv[])
@@ -113,10 +127,8 @@ int main(int argc, char *argv[])
 	circles.push_back(c_2);
 	Circle c_3(0.5);
 	circles.push_back(c_3);
-	Circle c_4(0.3);
+	Circle c_4(0.5);
 	circles.push_back(c_4);
-	Circle c_5(0.3);
-	circles.push_back(c_5);
 	// it's still possible to use console to print messages
 	std::cout << "Hello openGL world!" << std::endl;
 
