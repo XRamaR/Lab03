@@ -7,7 +7,7 @@ public:
 		x = x + dx;
 		y = y + dy;
 	}
-protected:
+public:
 	double x, y, k;
 	double r, g, b;
 	bool picked = false;

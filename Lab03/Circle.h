@@ -2,8 +2,8 @@
 #include <GL/freeglut.h>
 #include "Figure.h"
 #include <math.h>
-#include <stdio.h>      /* printf, NULL */
-#include <stdlib.h>     /* srand, rand */
+#include <stdio.h>    
+#include <stdlib.h>     
 #include <time.h> 
 
 #define M_PI acos(-1.0)
@@ -27,20 +27,35 @@ public:
 								 //GLfloat radius = 0.8f; //radius
 		GLfloat twicePi = 2.0f * M_PI;
 
-		glBegin(GL_TRIANGLE_FAN);
-		glColor3d(r, g, b);
-		glVertex2f(x, y); // center of circle
-		for (i = 0; i <= triangleAmount; i++) {
-			glVertex2f(
-				x + (radius * cos(i *  twicePi / triangleAmount)),
-				y + (radius * sin(i * twicePi / triangleAmount))
-			);
+		//glBegin(GL_TRIANGLE_FAN);
+		//glColor3d(r, g, b);
+		//glVertex2f(x, y); // center of circle
+		//for (i = 0; i <= triangleAmount; i++) {
+		//	glVertex2f(
+		//		x + (radius * cos(i *  twicePi / triangleAmount)),
+		//		y + (radius * sin(i * twicePi / triangleAmount))
+		//	);
+		//}
+		//glEnd();
+		glPushMatrix();
+		{
+			glColor3d(r, g, b);
+			glTranslatef(x, y, 0);
+
+			glBegin(GL_POLYGON);
+			{
+				for (double kat = 0; kat < 2 * 3.14; kat += 3.14 / 1000)
+				{
+					glVertex3f(cos(kat) * radius, sin(kat) * radius, 0.0);
+				}
+			}
+			glEnd();
 		}
-		glEnd();
+		glPopMatrix();
 	}
-	bool Mouse_inside(int mouse_x, int mouse_y)
+	bool Mouse_inside(float mouse_x, float mouse_y)
 	{
-		if (abs(x-mouse_x) < 0.5 && abs(y-mouse_y) < 0.5)
+		if (abs((mouse_x-x)) < radius && abs((mouse_y-y)) < radius)
 			return true;
 		else
 			return false;
@@ -51,6 +66,6 @@ public:
 		this->x = dx;
 		this->y = dy;
 	}
-private:
+public:
 	double radius;
 };

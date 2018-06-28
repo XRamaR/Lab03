@@ -8,6 +8,9 @@
 #include "Prostokat.h"
 #include "Rectangl.h"
 
+double openglX;
+double openglY;
+
 std::vector<Rectangl> rectangles;
 std::vector<Circle> circles;
 
@@ -93,15 +96,21 @@ void FunkcjaDoObslugiKlawiatury(unsigned char key, int mouse_x, int mouse_y)
 }
 void OnMouseClick(int button, int state, int x, int y)
 {
+	float openglX = ((double)x - 400) / 800 * 6.68;
+	float openglY = -((double)y - 300) / 600 * 5.0;
 	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
 	{
-		puts("Middle button clicked");
+		system("cls");
+		float wspolrzednaX = openglX;
+		float wspolrzednaY = openglY;
+		puts("Left button clicked");
 		std::cout << x << "  " << y << std::endl;
-		
-		{
-			if (circles[0].Mouse_inside(x, y))
-				std::cout << "inside " << it << "circle" << std::end;
-		}
+		std::cout <<"Mysz 2: "<< wspolrzednaX << " " << wspolrzednaY << std::endl;
+		std::cout << "Kolo: " << circles[0].x << " " << circles[0].y << std::endl;
+		if (circles[0].Mouse_inside(wspolrzednaX,wspolrzednaY)/*(abs(wspolrzednaX - circles[0].x)<circles[0].radius) || (abs(wspolrzednaY - circles[0].y)<circles[0].radius)*/)
+			puts("Inside");
+		else
+			puts("outside");
 	}
 }
 
@@ -119,16 +128,16 @@ int main(int argc, char *argv[])
 	srand(time(NULL));
 	/*Rectangl p(0, 0, 0, 0, 0, 0, 0.5, 0);
 	rectangles.push_back(p);*/
-	Circle c(0.5);
+	Circle c(0.5f);
 	circles.push_back(c);
-	Circle c_1(0.5);
+	/*Circle c_1(0.5f);
 	circles.push_back(c_1);
-	Circle c_2(0.5);
+	Circle c_2(0.5f);
 	circles.push_back(c_2);
-	Circle c_3(0.5);
+	Circle c_3(0.5f);
 	circles.push_back(c_3);
-	Circle c_4(0.5);
-	circles.push_back(c_4);
+	Circle c_4(0.5f);
+	circles.push_back(c_4);*/
 	// it's still possible to use console to print messages
 	std::cout << "Hello openGL world!" << std::endl;
 

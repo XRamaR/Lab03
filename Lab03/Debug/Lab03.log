@@ -1,7 +1,9 @@
 ﻿  Source.cpp
 c:\users\admin\desktop\lab03\lab03\circle.h(28): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\admin\desktop\lab03\lab03\circle.h(32): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\admin\desktop\lab03\lab03\circle.h(36): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\admin\desktop\lab03\lab03\circle.h(35): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\admin\desktop\lab03\lab03\source.cpp(116): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\admin\desktop\lab03\lab03\circle.h(43): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\admin\desktop\lab03\lab03\circle.h(49): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\admin\desktop\lab03\lab03\circle.h(25): warning C4101: 'i': unreferenced local variable
+c:\users\admin\desktop\lab03\lab03\source.cpp(99): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\admin\desktop\lab03\lab03\source.cpp(100): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\admin\desktop\lab03\lab03\source.cpp(128): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   Lab03.vcxproj -> C:\Users\Admin\Desktop\Lab03\Debug\Lab03.exe
