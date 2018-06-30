@@ -60,12 +60,12 @@ public:
 		else
 			return false;
 	}
-	void Drag(int dx, int dy)
+	void Drag(float dx, float dy)
 	{
-		this->picked = true;
 		this->x = dx;
 		this->y = dy;
 	}
 public:
 	double radius;
+	bool picked = false;
 };
